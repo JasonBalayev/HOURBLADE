@@ -42,7 +42,7 @@ local function animateTitle()
 		returnTween:Play()
 		returnTween.Completed:Wait()
 
-		task.wait(2)  
+		task.wait(3)  
 	end
 end
  
@@ -50,12 +50,6 @@ title.TextStrokeTransparency = 0.5
 title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 
 animateTitle()
-
-
-
-
-
-
 
 -- Original Aniamtion Title below
 
