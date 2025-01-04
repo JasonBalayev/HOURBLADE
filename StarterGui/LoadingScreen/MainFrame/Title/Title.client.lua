@@ -1,43 +1,105 @@
 local title = script.Parent
 local tweenService = game:GetService("TweenService")
+ 
+local tweenInfo = TweenInfo.new(1.2, Enum.EasingStyle.Cubic, Enum.EasingDirection.InOut)
 
-local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+local originalTextSize = title.TextSize
 
 local function animateTitle()
 	while true do
- 		local step1Goal = {
-			Rotation = 10,
-			TextTransparency = 0.5,
-			TextSize = title.TextSize + 10
+ 
+		local pulseOutGoal = {
+			Rotation = 5,
+			TextTransparency = 0.1,
+			TextSize = originalTextSize * 1.15,
+			TextStrokeTransparency = 0.3   
 		}
-		
-		local step1Tween = tweenService:Create(title, tweenInfo, step1Goal)
-		step1Tween:Play()
-		step1Tween.Completed:Wait()
 
- 		local step2Goal = {
-			Rotation = -10,
+		local pulseOutTween = tweenService:Create(title, tweenInfo, pulseOutGoal)
+		pulseOutTween:Play()
+		pulseOutTween.Completed:Wait()
+
+	 
+		local pulseInGoal = {
+			Rotation = -5,
 			TextTransparency = 0,
-			TextSize = title.TextSize - 5
+			TextSize = originalTextSize * 0.95,
+			TextStrokeTransparency = 0.7   
 		}
-		
-		local step2Tween = tweenService:Create(title, tweenInfo, step2Goal)
-		step2Tween:Play()
-		step2Tween.Completed:Wait()
 
- 		local step3Goal = {
+		local pulseInTween = tweenService:Create(title, tweenInfo, pulseInGoal)
+		pulseInTween:Play()
+		pulseInTween.Completed:Wait()
+ 
+		local returnGoal = {
 			Rotation = 0,
 			TextTransparency = 0,
-			TextSize = title.TextSize
+			TextSize = originalTextSize,
+			TextStrokeTransparency = 0.5  
 		}
-		
-		local step3Tween = tweenService:Create(title, tweenInfo, step3Goal)
-		step3Tween:Play()
-		step3Tween.Completed:Wait()
+
+		local returnTween = tweenService:Create(title, tweenInfo, returnGoal)
+		returnTween:Play()
+		returnTween.Completed:Wait()
+
+		task.wait(2)  
 	end
 end
+ 
+title.TextStrokeTransparency = 0.5
+title.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 
 animateTitle()
+
+
+
+
+
+
+
+-- Original Aniamtion Title below
+
+
+--local title = script.Parent
+--local tweenService = game:GetService("TweenService")
+
+--local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+
+--local function animateTitle()
+--	while true do
+-- 		local step1Goal = {
+--			Rotation = 10,
+--			TextTransparency = 0.5,
+--			TextSize = title.TextSize + 10
+--		}
+		
+--		local step1Tween = tweenService:Create(title, tweenInfo, step1Goal)
+--		step1Tween:Play()
+--		step1Tween.Completed:Wait()
+
+-- 		local step2Goal = {
+--			Rotation = -10,
+--			TextTransparency = 0,
+--			TextSize = title.TextSize - 5
+--		}
+		
+--		local step2Tween = tweenService:Create(title, tweenInfo, step2Goal)
+--		step2Tween:Play()
+--		step2Tween.Completed:Wait()
+
+-- 		local step3Goal = {
+--			Rotation = 0,
+--			TextTransparency = 0,
+--			TextSize = title.TextSize
+--		}
+		
+--		local step3Tween = tweenService:Create(title, tweenInfo, step3Goal)
+--		step3Tween:Play()
+--		step3Tween.Completed:Wait()
+--	end
+--end
+
+--animateTitle()
 
 --Attempt to make a loading screen with a cut through text effect
 
