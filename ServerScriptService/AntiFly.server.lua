@@ -5,7 +5,7 @@
 local FlySettings = {
 	StrikesUntilRefresh = 6; 
 	StrikesUntilKick = 0;  
-	MaxHeight =  Vector3.new(0,-40,0); 
+	MaxHeight =  Vector3.new(0,-60,0); 
 	Intervals = 15;  
 	AddStrikeIfPlatformStanding = true;  
 };
