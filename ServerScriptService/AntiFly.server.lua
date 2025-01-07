@@ -2,6 +2,7 @@
 -- Made by TetraAdur --
 ------------------
 
+
 local FlySettings = {
 	StrikesUntilRefresh = 6; 
 	StrikesUntilKick = 0;  
